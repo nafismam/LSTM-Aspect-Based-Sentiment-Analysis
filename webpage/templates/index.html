@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sentiment Analysis</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Monaco&display=swap');
+
+    body {
+      font-family: 'Monaco', monospace;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: linear-gradient(210deg, #c22ed0, #5ffae0);
+      color: #fff;
+    }
+
+    .container {
+      width: 500px;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #fff;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .input-box {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 20px;
+    }
+
+    .input-box input[type="text"] {
+      width: 96%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #fff;
+      color: #111;
+      font-family: 'Monaco', monospace;
+    }
+
+    .clear-button {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 10px;
+    }
+
+    .clear-button button {
+      padding: 5px 10px;
+      font-size: 14px;
+      border: none;
+      border-radius: 5px;
+      background-color: #f6ea41;
+      color: #111;
+      cursor: pointer;
+      font-family: 'Monaco', monospace;
+    }
+
+    .clear-button button:hover {
+      background-color: #f048c6;
+      color: #fff;
+    }
+
+    .output-box {
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+
+    .output-box h3 {
+      color: #fff;
+      font-size: 20px;
+      margin: 0 0 10px;
+    }
+
+    .output-box p {
+      color: #ccc;
+      margin: 0;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Sentiment Analysis</h1>
+    <div class="input-box">
+      <form action="./" method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <div class="clear-button">
+          {% comment %} <button type="button" onclick="clearInput()">Clear</button> {% endcomment %}
+        </div>
+      </form>
+    </div>
+    <div class="output-box">
+      <h3>Sentiment:</h3>
+      {% if show %}
+        <p id="sentimentOutput">{{sentiment}}</p>
+      {% else %}
+      <p id="sentimentOutput"></p>
+      {% endif %}
+    </div>
+    <div class="output-box">
+      <h3>Aspect:</h3>
+      {% if show %}
+        <p id="aspectOutput">{{aspect}}</p>
+      {% else %}
+        <p id="aspectOutput"></p>
+      {% endif %}
+    </div>
+  </div>
+
+  <script>
+    // JavaScript code to update the output boxes
+    const textInput = document.getElementById('textInput');
+    const sentimentOutput = document.getElementById('sentimentOutput');
+    const aspectOutput = document.getElementById('aspectOutput');
+
+    textInput.addEventListener('input', () => {
+      const text = textInput.value;
+      // Perform sentiment analysis and aspect extraction here
+      const sentiment = analyzeSentiment(text);
+      const aspect = extractAspect(text);
+
+      sentimentOutput.textContent = sentiment;
+      aspectOutput.textContent = aspect;
+    });
+
+    function clearInput() {
+      textInput.value = '';
+    }
+
+    // Dummy functions for sentiment analysis and aspect extraction
+    function analyzeSentiment(text) {
+      // Perform sentiment analysis here and return the sentiment value
+      // Replace this dummy implementation with your actual logic
+      return 'Positive';
+    }
+
+    function extractAspect(text) {
+      // Perform aspect extraction here and return the extracted aspect
+      // Replace this dummy implementation with your actual logic
+      return 'Product';
+    }
+  </script>
+</body>
+</html>

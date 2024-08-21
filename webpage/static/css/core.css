@@ -1,0 +1,111 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
+}
+html, body {
+    margin: 0;
+    padding: 0;
+  }
+img{
+    /* background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5));  */
+    /* background-size: 100% 100%; */
+    position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+header{
+    
+    height: 150vh;
+    background-size: cover;
+    background-position: center;
+}
+
+ul{
+    float: right;
+    list-style-type: none;
+    margin-top: 20px;
+}
+ul li{
+    display: inline-block;
+}
+
+ul li a{
+    font-family:'Courier New', Courier, monospace;
+    text-decoration: none;
+    color: black;
+    padding: 5px 20px;
+    border: 1px solid black;
+    border-radius: 20px;
+    transition: 0.6s ease;
+}
+
+ul li a:hover{
+    background-color: black;
+    color: white;
+}
+
+.main{
+    max-width: 1200px;
+    margin: auto;
+}
+body {
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    height: 100vh;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.title{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.title h1{
+    /* position: absolute; */
+    text-align: center;
+    color: white;
+    font-size: 70px;
+    font-family:fantasy;
+}
+.button{
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.btn{
+    font-family:'Courier New', Courier, monospace;
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 10px 30px;
+    color: white;
+    text-decoration: none;
+}
+
+.btn:hover{
+    background-color: white;
+    color: black;
+}
+
